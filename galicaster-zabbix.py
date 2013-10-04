@@ -73,8 +73,8 @@ def main():
                         help="Options: hostname, current_profile, network and is_recording.")
     parser.add_option("--host", dest="host", default="localhost",
                       help="Ip address for the galicaster agent, default is localhost")
-    parser.add_option("-p", "--port", dest="port", default="8080",
-                      help="Port for the galicaster rest interface, default is 8080")
+    parser.add_option("-p", "--port", dest="port", default="8000",
+                      help="Port for the galicaster rest interface, default is 8000")
 
     (options, args) = parser.parse_args()
 
