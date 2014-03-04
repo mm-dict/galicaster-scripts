@@ -45,7 +45,7 @@ actions = { "status": get_status,
 def get_galicaster_state(options):
     url = "http://" + options.host + ":" + options.port
     try:
-        r = requests.get(url + GALICASTER_STATE)
+        r = requests.get(url + GALICASTER_STATE, timeout=2)
     except RequestException:
         print "Offline"
         sys.exit(1)
