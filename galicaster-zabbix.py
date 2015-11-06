@@ -36,7 +36,7 @@ def get_recording_state(options):
 
 def get_collectd_stats(options):
     url = "http://" + options.host + ":" + options.port
-    hostname = socket.gethostname()
+    hostname = socket.getfqdn()
     try:
         r = requests.get(url + GALICASTER_STATE, timeout=2)
     except RequestException:
@@ -52,7 +52,7 @@ def get_collectd_stats(options):
     else:
         value = 0
 
-    print "PUTVAL " + hostname + "/galicaster/recording N:" + str(value)
+    print "PUTVAL \"" + hostname + "/galicaster/current-recording\" N:" + str(value)
 
 # Actions dict
 actions = { "status": get_status,
