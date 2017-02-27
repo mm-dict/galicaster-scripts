@@ -9,7 +9,8 @@ GALICASTER_STATE = "/state"
 
 
 def get_status(options):
-    if get_galicaster_state(options):
+    response = get_galicaster_state(options)
+    if response:
         print response['recorder-status']
     else:
         print "Offline"
@@ -95,7 +96,7 @@ def main():
                         help="Options: hostname, current_profile, network and is_recording.")
     parser.add_option("--host", dest="host", default="localhost",
                       help="Ip address for the galicaster agent, default is localhost")
-    parser.add_option("-p", "--port", dest="port", default="8000",
+    parser.add_option("-p", "--port", dest="port", default="8081",
                       help="Port for the galicaster rest interface, default is 8000")
 
     (options, args) = parser.parse_args()
