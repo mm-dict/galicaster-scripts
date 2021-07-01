@@ -11,29 +11,29 @@ GALICASTER_STATE = "/state"
 def get_status(options):
     response = get_galicaster_state(options)
     if response:
-        print response['recorder-status']
+        print(response['recorder-status'])
     else:
-        print "Offline"
+        print("Offline")
 
 
 def get_hostname(options):
     response = get_galicaster_state(options)
-    print response['hostname']
+    print(response['hostname'])
 
 
 def get_profile(options):
     response = get_galicaster_state(options)
-    print response['current-profile']
+    print(response['current-profile'])
 
 
 def get_network(options):
     response = get_galicaster_state(options)
-    print response['net-enabled']
+    print(response['net-enabled'])
 
 
 def get_recording_state(options):
     response = get_galicaster_state(options)
-    print response['is-recording']
+    print(response['is-recording'])
 
 def get_collectd_stats(options):
     url = "http://" + options.host + ":" + options.port
@@ -70,7 +70,7 @@ def get_galicaster_state(options):
     try:
         r = requests.get(url + GALICASTER_STATE, timeout=2)
     except RequestException:
-        print "Offline"
+        print("Offline")
         sys.exit(1)
 
     if r.status_code != requests.codes.ok:
@@ -81,7 +81,7 @@ def get_galicaster_state(options):
 
 
 def warning(options):
-    print "Please check %prog --help for the correct syntax"
+    print("Please check %prog --help for the correct syntax")
 
 
 def process_action(parser, options):
